@@ -17,16 +17,14 @@ const NavBar = () => {
             <Link className="nav-link active" aria-current="page" to="/category/termos">Termos</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/category/mate">Mates</Link>
+            <Link className="nav-link" to="/category/mates">Mates</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/category/accesorios">Accesorios</Link>
           </li>
         </ul>
         <CartWidget/>
-        <span className="navbar-text">
-          2
-        </span>
+     
       </div>
     </div>
   </nav>
