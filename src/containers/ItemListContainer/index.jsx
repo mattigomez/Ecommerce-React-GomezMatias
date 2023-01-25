@@ -4,6 +4,7 @@ import ItemList from '../../components/ItemList';
 import productJson from '../../data/products.json';
 import { db } from '../../firebase/config';
 import { collection, getDocs, query, where } from "firebase/firestore"; 
+/* import saveFromJSONToFirebase from '../../services/saveFromJSONToFirebase'; */
 
 
 const ItemListContainer = ({greeting}) => {
@@ -12,7 +13,9 @@ const ItemListContainer = ({greeting}) => {
 
   const {categoryId}  = useParams()
   
-
+/*   useEffect(() => {
+    saveFromJSONToFirebase()
+  },[]) */
 
   useEffect(()=> {
 

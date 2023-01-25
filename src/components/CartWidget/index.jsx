@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { HiShoppingCart } from "react-icons/hi";
 import { Shop } from '../../context/ShopProvider';
+import {Link} from 'react-router-dom'
 import './styles.css';
 
 const CartWidget = () => {
@@ -10,10 +11,10 @@ const CartWidget = () => {
     const {countCart}= useContext(Shop)
 
     return (
-        <div>
+        <Link to="/cart">
            <HiShoppingCart style={{height:35, width:35}}/> 
            <span>{countCart()}</span>
-        </div>
+        </Link>
     );
 };
 

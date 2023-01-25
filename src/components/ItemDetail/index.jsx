@@ -16,7 +16,6 @@ const ItemDetail = ({ detail }) => {
         addProduct({...detail,quantity: cantidad})
     }
 
-    console.log(detail.title);
     return (
         <div className="detail-container">
             <img className="detail-img" src={detail.image} alt="detail" />
@@ -26,7 +25,7 @@ const ItemDetail = ({ detail }) => {
                 {
                     quantity === 0 ?
                     <ItemCount 
-                        stock={20} 
+                        stock={detail.stock} 
                         initial={1} 
                         onAdd={onAdd}    
                     />
