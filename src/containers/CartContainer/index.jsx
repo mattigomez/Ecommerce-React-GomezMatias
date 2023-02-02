@@ -8,14 +8,20 @@ import { db } from "../../firebase/config";
 import { useState } from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import FormComp from "../../components/Form";
+import Spinner from 'react-bootstrap/Spinner';
 
 const Cart = () => {
 
     const {products, total, cleanCart} = useContext(Shop);
 
+    const [formVis, setFormVis] = useState(false);
+
     const [loader, setLoader] = useState(false)
 
-    const confirmPurchase = async() => {
+    const confirmPurchase = async(dataDelFormulario) => {
+      
+    const {telefono, nombre, email} = dataDelFormulario
 
       try {
 
@@ -23,9 +29,9 @@ const Cart = () => {
   
         const order = generateOrderObject({
           //realizar formulario
-          nombre: "mati",
-          email: "mati@hotmail.com",
-          telefono: "3416850906",
+          nombre,
+          email,
+          telefono,
           cart: products,
           total: total()
         })
@@ -53,6 +59,7 @@ const Cart = () => {
       console.log(error);
     } finally{
       setLoader(false);
+      setFormVis(false);
       }
 
 
@@ -83,9 +90,9 @@ const Cart = () => {
     </table>
     {
     loader ?
-    <h2>Cargando ...</h2>
+    <Spinner animation="border" />
     :
-    <button onClick={confirmPurchase}>Confirmar Compra</button>
+    <button onClick={() => setFormVis(true)}>Confirmar Compra</button>
     }  
       </>
       :
@@ -96,6 +103,16 @@ const Cart = () => {
       </button>
       </>
   }
+
+    {
+      formVis ?
+      <FormComp
+        confirmPurchase = {confirmPurchase}
+        formVis = {formVis}
+        setFormVis = {setFormVis}
+        />
+        : null
+    }
     </>
 
   )
