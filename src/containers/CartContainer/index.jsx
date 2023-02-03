@@ -71,7 +71,7 @@ const Cart = () => {
       products.length !== 0 ? 
 
       <>
-      <table className="table table-success table-striped">
+      <table className="table table-success table-striped table-light">
         <thead>
           <tr>
             <th scope="col">id</th>

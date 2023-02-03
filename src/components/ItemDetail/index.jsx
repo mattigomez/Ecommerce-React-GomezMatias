@@ -30,9 +30,9 @@ const ItemDetail = ({ detail }) => {
                         onAdd={onAdd}    
                     />
                     :
-                    <button className="btn btn-primary p-2">
-                        <Link to="/cart">
-                            Go cart
+                    <button className="btn btn-secondary p-2">
+                        <Link to="/cart" className='btnCarrito'>
+                            Ir al carrito
                         </Link>
                     </button>
                 }

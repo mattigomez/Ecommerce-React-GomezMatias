@@ -1,7 +1,11 @@
 import React from 'react'
+import { useContext } from 'react';
+import { Shop } from '../../context/ShopProvider';
 import "./styles.css";
 
 const TableRow = ({product}) => {
+
+  const {removeProduct} = useContext(Shop)
   return (
         <tr>
             <th scope="row">{product.id}</th>
@@ -9,7 +13,7 @@ const TableRow = ({product}) => {
             <td>{product.title}</td>
             <td>{product.price}</td>
             <td>{product.quantity}</td>
-            <td><button>Eliminar</button></td>
+            <td><button onClick={() => removeProduct(product.id)}>Eliminar</button></td>
           </tr>
   )
 }
